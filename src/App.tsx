@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components"
 import { Header, Sidebar } from "./components"
 
 // styles
+import * as S from "./styles";
 import theme from "./styles/theme"
 import { GlobalStyle } from "./styles/global"
 
@@ -13,7 +14,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
-      <Sidebar />
+      <S.Container>
+
+        <Sidebar />
+        <main>
+          oi
+        </main>
+      </S.Container>
     </ThemeProvider>
   )
 }
