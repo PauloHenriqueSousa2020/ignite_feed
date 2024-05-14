@@ -1,3 +1,6 @@
+// libs
+import { FormEvent, useState } from 'react';
+
 // components
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
@@ -5,26 +8,66 @@ import { Comment } from '../Comment';
 // styles
 import * as S from './styles';
 
-export function Post() {
+interface PostProps {
+  post: {
+    id: number,
+    name: string,
+    avatarUrl: string,
+    role: string,
+    dateTime: string,
+    content: string,
+    comments:
+    {
+      name: string,
+      avatarUrl: string,
+      dateTime: string,
+      comment: string
+    }[]
+  }
+}
+
+export function Post({ post }: PostProps) {
+  const [comments, setComments] = useState(post.comments);
+  const [comment, setComment] = useState({
+    name: "Paulo Henrique",
+    avatarUrl: "https://github.com/PauloHenriqueSousa2020.png",
+    dateTime: "2024-14-05 14:06",
+    comment: ""
+  });
+
+  function handleAddNewComment(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setComments([...comments, comment]);
+    setComment({...comment, comment: ""});
+  }
+
+  function handleRemoveComment(removedComment: string) {
+    setComments(comments.filter(comment => comment.comment !== removedComment));
+  }
+
   return (
     <S.Container>
       <div className='wrapper'>
         <div className='header'>
-          <Avatar src="https://github.com/PauloHenriqueSousa2020.png" alt="" />
+          <Avatar src={post.avatarUrl} alt="" />
           <div>
-            <strong>Paulo Henrique</strong>
-            <span>Web Developer</span>
+            <strong>{post.name}</strong>
+            <span>{post.role}</span>
           </div>
         </div>
-        <label>Publicado há 1h</label>
+        <label>{post.dateTime}</label>
       </div>
       <div className='content'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quod aperiam saepe sint eveniet quo consequatur nobis? Inventore ut, laboriosam explicabo dolor ipsa soluta sunt laborum sapiente voluptatum aut deserunt.
+        {post.content}
       </div>
-
-      <form className='commentForm'>
+      <form onSubmit={handleAddNewComment} className='commentForm'>
         <strong>Deixe seu feedback</strong>
-        <textarea placeholder='Escreva um comentário...' />
+        <textarea
+          placeholder='Escreva um comentário...'
+          value={comment.comment}
+          onChange={(e) => setComment({ ...comment, comment: e.target.value })}
+        />
 
         <footer>
           <button type='submit'>
@@ -32,12 +75,9 @@ export function Post() {
           </button>
         </footer>
       </form>
-
-      <Comment />
-      <Comment />
-      <Comment />
-      <Comment />
-      <Comment />
+      {comments.map(comment => (
+        <Comment key={comment.comment} comment={comment} handleRemoveComment={handleRemoveComment} />
+      ))}
     </S.Container>
   )
 }

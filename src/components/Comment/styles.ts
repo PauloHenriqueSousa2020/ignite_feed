@@ -9,6 +9,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 
     .content {
       display: flex;
@@ -18,10 +19,11 @@ export const Container = styled.div`
       border-radius: 8px;
       padding: 1rem 2rem 1rem;
       gap: 1rem;
-  
+
       .wrapper {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
     
         .wrapperHeader {
           display: flex;
