@@ -16,16 +16,7 @@ export const Sidebar = styled.aside`
     flex-direction: column;
     align-items: center;
     margin-top: calc(0px - 1.5rem - 6px);
-
-    .avatar {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 8px;
-      border: 4px solid ${({ theme }) => theme.colors.gray_800};
-      outline: 2px solid ${({ theme }) => theme.colors.green_300};
-      box-sizing: initial;
-    }
-
+    
     strong {
       margin-top: 1rem;
       color: ${({ theme }) => theme.colors.gray_100};
@@ -39,7 +30,7 @@ export const Sidebar = styled.aside`
   }
 
   footer {
-    border-top: 1px solid ${({ theme }) => theme.colors.gray_100};
+    border-top: 1px solid ${({ theme }) => theme.colors.gray_600};
     padding: 1.5rem 2rem 2rem;
     margin-top: 1.5rem;
 

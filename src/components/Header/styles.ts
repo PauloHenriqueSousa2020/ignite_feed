@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-    background-color: ${({ theme }) => theme.colors.gray_800};
+  background-color: ${({ theme }) => theme.colors.gray_800};
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,6 +7,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :focus{
+    outline: transparent;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.green_500};
+  }
+  
   body {
     background-color: ${({ theme }) => theme.colors.gray_900};
     color: ${({ theme }) => theme.colors.gray_300};
@@ -17,5 +22,27 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+    border-radius: 8px;
+    background: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    margin: 0;
+    border-radius: 8px;
+    background: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.green_500};
+    height: 3rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${({ theme }) => theme.colors.green_300};
   }
 `

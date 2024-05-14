@@ -2,7 +2,7 @@
 import { ThemeProvider } from "styled-components"
 
 // components
-import { Header, Sidebar } from "./components"
+import { Header, Post, Sidebar } from "./components"
 
 // styles
 import * as S from "./styles";
@@ -18,7 +18,9 @@ function App() {
 
         <Sidebar />
         <main>
-          oi
+          <Post />
+          <Post />
+          <Post />
         </main>
       </S.Container>
     </ThemeProvider>
