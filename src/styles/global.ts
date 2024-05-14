@@ -45,4 +45,10 @@ export const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background-color: ${({ theme }) => theme.colors.green_300};
   }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
 `

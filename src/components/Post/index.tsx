@@ -1,5 +1,7 @@
 // libs
 import { FormEvent, useState } from 'react';
+import moment from "moment";
+import 'moment/locale/pt-br';  // para português do Brasil
 
 // components
 import { Avatar } from '../Avatar';
@@ -31,7 +33,7 @@ export function Post({ post }: PostProps) {
   const [comment, setComment] = useState({
     name: "Paulo Henrique",
     avatarUrl: "https://github.com/PauloHenriqueSousa2020.png",
-    dateTime: "2024-14-05 14:06",
+    dateTime: moment().toString(),
     comment: ""
   });
 
@@ -39,7 +41,7 @@ export function Post({ post }: PostProps) {
     e.preventDefault();
 
     setComments([...comments, comment]);
-    setComment({...comment, comment: ""});
+    setComment({ ...comment, comment: "" });
   }
 
   function handleRemoveComment(removedComment: string) {
@@ -56,7 +58,9 @@ export function Post({ post }: PostProps) {
             <span>{post.role}</span>
           </div>
         </div>
-        <label>{post.dateTime}</label>
+        <label>            
+           {moment(post.dateTime).fromNow()}
+        </label>
       </div>
       <div className='content'>
         {post.content}

@@ -1,5 +1,7 @@
 // libs
 import { useState } from "react";
+import moment from "moment";
+moment.locale('pt-br');
 
 // components
 import { ThumbsUp, Trash } from "phosphor-react";
@@ -30,7 +32,7 @@ export function Comment({ comment, handleRemoveComment }: CommentProps) {
           <div className="wrapper">
             <div className="wrapperHeader">
               <strong>{comment.name}</strong>
-              <span>{comment.dateTime}</span>
+              <span>{moment(comment.dateTime).fromNow()}</span>
             </div>
             <button onClick={() => handleRemoveComment(comment.comment)} className="trashButton" title="Deletar comentário">
               <Trash size={18} />
