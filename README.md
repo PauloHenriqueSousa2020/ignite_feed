@@ -1,8 +1,8 @@
 <!--Ignite Feed-->
 
-# Ignite Feed - React + TypeScript + Styled Components + Vite
-
+# React + TypeScript + Styled Components + Vite
 <h1 align="center" text> <img alt="" width="32px" height: "32px" title="" src="/src/assets/ignite.svg"> Ignite Feed </h1>
+
 
 <h2 align="center"> Desenvolvida com as tecnologias 
 
